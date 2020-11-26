@@ -1,29 +1,29 @@
 var db = require('../dbConnection'); //reference of dbconnection.js file
 
 var Qualification = {
-    getallDetails: function (callback) {
+    getallDetails3: function (callback) {
 
         return db.query('select * from qualification', callback);
     },
-    getDetails: function (Id,callback) {
+    getDetails3: function (Id,callback) {
 
-        return db.query('select * from qualification where qualification=?',[Id], callback);
+        return db.query('select * from qualification where id=?',[Id], callback);
     },
-    addDetails: function (qualification, callback) {
-        return db.query('insert into qualification values(?,?,?,?)',
-         [
+    addDetails3: function (qualification, callback) {
+        return db.query('insert into qualification values(?,?,?,?,?)',
+         [   qualification.id,
              qualification.qualification,
              qualification.institute,
              qualification.year,
              qualification.score
          ], callback);
     },
-    deleteDetails: function (Id, callback) {
-        return db.query('delete from qualification where qualification=?', [Id], callback);
+    deleteDetails3: function (Id, callback) {
+        return db.query('delete from qualification where id=?', [Id], callback);
     },
-    updateDetails: function (Id, qualification, callback) {
-        return db.query('update qualification institute=?,year=?,score=? where qualification=?', 
-        [
+    updateDetails3: function (Id, qualification, callback) {
+        return db.query('update qualification set qualification=? ,institute=?,year=?,score=? where id=?', 
+        [  
             qualification.qualification,
             qualification.institute,
             qualification.year,

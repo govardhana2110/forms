@@ -6,7 +6,7 @@ var experience = require('../Models/Experience');
 
 router.get('/:Id?', function (req, res, next) {
     if(req.params.Id){
-experience.getDetails(req.params.Id,function(err,rows){
+experience.getDetails4(req.params.Id,function(err,rows){
     if (err) {
         res.json(err);
     }
@@ -16,7 +16,7 @@ experience.getDetails(req.params.Id,function(err,rows){
 });
     }
     else{
-    experience.getallDetails(function (err, rows) {
+    experience.getallDetails4(function (err, rows) {
     
     
         if (err) {
@@ -33,7 +33,7 @@ experience.getDetails(req.params.Id,function(err,rows){
      });
 router.post('/', function (req, res, next) {
 
-    experience.addDetails(req.body, function (err, rows) {
+    experience.addDetails4(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.delete('/:Id', function (req, res, next) {
 
-    experience.deleteDetails(req.params.Id, function (err, rows) {
+    experience.deleteDetails4(req.params.Id, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -59,7 +59,7 @@ router.delete('/:Id', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.put('/:Id', function (req, res, next) {
 
-    experience.updateDetails(req.params.Id, req.body, function (err, rows) {
+    experience.updateDetails4(req.params.Id, req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }

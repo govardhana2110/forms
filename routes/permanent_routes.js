@@ -6,7 +6,7 @@ var permanent = require('../Models/Permanent');
 
 router.get('/:Id?', function (req, res, next) {
     if(req.params.Id){
-permanent.getDetails(req.params.Id,function(err,rows){
+permanent.getDetails1(req.params.Id,function(err,rows){
     if (err) {
         res.json(err);
     }
@@ -16,7 +16,7 @@ permanent.getDetails(req.params.Id,function(err,rows){
 });
     }
     else{
-    permanent.getallDetails(function (err, rows) {
+    permanent.getallDetails1(function (err, rows) {
     
     
         if (err) {
@@ -33,7 +33,7 @@ permanent.getDetails(req.params.Id,function(err,rows){
      });
 router.post('/', function (req, res, next) {
 
-    permanent.addDetails(req.body, function (err, rows) {
+    permanent.addDetails1(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.delete('/:Id', function (req, res, next) {
 
-    permanent.deleteDetails(req.params.Id, function (err, rows) {
+    permanent.deleteDetails1(req.params.Id, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -59,7 +59,7 @@ router.delete('/:Id', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.put('/:Id', function (req, res, next) {
 
-    permanent.updateDetails(req.params.Id, req.body, function (err, rows) {
+    permanent.updateDetails1(req.params.Id, req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }

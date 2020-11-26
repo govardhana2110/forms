@@ -6,7 +6,7 @@ var qualification = require('../Models/Qualification');
 
 router.get('/:Id?', function (req, res, next) {
     if(req.params.Id){
-qualification.getDetails(req.params.Id,function(err,rows){
+qualification.getDetails3(req.params.Id,function(err,rows){
     if (err) {
         res.json(err);
     }
@@ -16,7 +16,7 @@ qualification.getDetails(req.params.Id,function(err,rows){
 });
     }
     else{
-    qualification.getallDetails(function (err, rows) {
+    qualification.getallDetails3(function (err, rows) {
     
     
         if (err) {
@@ -33,7 +33,7 @@ qualification.getDetails(req.params.Id,function(err,rows){
      });
 router.post('/', function (req, res, next) {
 
-    qualification.addDetails(req.body, function (err, rows) {
+    qualification.addDetails3(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.delete('/:Id', function (req, res, next) {
 
-    qualification.deleteDetails(req.params.Id, function (err, rows) {
+    qualification.deleteDetails3(req.params.Id, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -59,7 +59,7 @@ router.delete('/:Id', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.put('/:Id', function (req, res, next) {
 
-    qualification.updateDetails(req.params.Id, req.body, function (err, rows) {
+    qualification.updateDetails3(req.params.Id, req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }

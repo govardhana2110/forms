@@ -7,12 +7,12 @@ var Registration = {
     },
     getDetails: function (Id,callback) {
 
-        return db.query('select * from registrationform where employee_number=?',[Id], callback);
+        return db.query('select * from registrationform where id=?',[Id], callback);
     },
     addDetails: function (registrationform, callback) {
-        return db.query('insert into registrationform values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+        return db.query('INSERT INTO `registrationform`(`id`, `name`, `title`, `first_name`, `middle_name`, `last_name`, `user_gender`, `user_dob`, `age`, `official_phone`, `personal_phone`, `extn_ofc_phn`, `fax`, `ofc_mail`, `personal_email`, `photo`, `birth_place`, `relegion`, `cast`, `nationality`, `voter_id`, `PAN`, `aadhar`, `marital_status`, `bank_name`, `account_type`, `payment_type`, `acc_no`, `IFSC`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
          [
-             registrationform.employee_number,
+             registrationform.id,
              registrationform.name,
              registrationform.title,
              registrationform.first_name,
@@ -36,7 +36,7 @@ var Registration = {
              registrationform.PAN,
              registrationform.aadhar,
              registrationform.marital_status,
-             registrationform.bank_nane,
+             registrationform.bank_name,
              registrationform.account_type,
              registrationform.payment_type,
              registrationform.acc_no,
@@ -47,12 +47,11 @@ var Registration = {
          ], callback);
     },
     deleteDetails: function (Id, callback) {
-        return db.query('delete from registrationform where employee_number=?', [Id], callback);
+        return db.query('delete from registrationform where id=?', [Id], callback);
     },
     updateDetails: function (Id, registrationform, callback) {
-        return db.query('update registrationform name=?,title=?,first_name=?,middle_name=?,last_name=?,user_gender=?,user_dob=?,age=?,official_phone=?,personal_phone=?,extn_ofc_phn=?,fax=?,ofc_mail=?,personal_mail=?,photo=?,birth_place=?,relegion=?,cast=?,nationality=?,voter_id=?,PAN=?,aadhar=?,marital_status=?,bank_name=?,account_type=?,payment_type=?,acc_no=?,IFSC=? where employee_number=?', 
+        return db.query('update registrationform set name=?,title=?,first_name=?,middle_name=?,last_name=?,user_gender=?,user_dob=?,age=?,official_phone=?,personal_phone=?,extn_ofc_phn=?,fax=?,ofc_mail=?,personal_email=?,photo=?,birth_place=?,relegion=?,cast=?,nationality=?,voter_id=?,PAN=?,aadhar=?,marital_status=?,bank_name=?,account_type=?,payment_type=?,acc_no=?,IFSC=? where id=?', 
         [
-            registrationform.employee_number,
              registrationform.name,
              registrationform.title,
              registrationform.first_name,
@@ -76,7 +75,7 @@ var Registration = {
              registrationform.PAN,
              registrationform.aadhar,
              registrationform.marital_status,
-             registrationform.bank_nane,
+             registrationform.bank_name,
              registrationform.account_type,
              registrationform.payment_type,
              registrationform.acc_no,

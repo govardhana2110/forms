@@ -6,7 +6,7 @@ var skill = require('../Models/Skill');
 
 router.get('/:Id?', function (req, res, next) {
     if(req.params.Id){
-skill.getDetails(req.params.Id,function(err,rows){
+skill.getDetails5(req.params.Id,function(err,rows){
     if (err) {
         res.json(err);
     }
@@ -16,7 +16,7 @@ skill.getDetails(req.params.Id,function(err,rows){
 });
     }
     else{
-    skill.getallDetails(function (err, rows) {
+    skill.getallDetails5(function (err, rows) {
     
     
         if (err) {
@@ -33,7 +33,7 @@ skill.getDetails(req.params.Id,function(err,rows){
      });
 router.post('/', function (req, res, next) {
 
-    skill.addDetails(req.body, function (err, rows) {
+    skill.addDetails5(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.delete('/:Id', function (req, res, next) {
 
-    skill.deleteDetails(req.params.Id, function (err, rows) {
+    skill.deleteDetails5(req.params.Id, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -59,7 +59,7 @@ router.delete('/:Id', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.put('/:Id', function (req, res, next) {
 
-    skill.updateDetails(req.params.Id, req.body, function (err, rows) {
+    skill.updateDetails5(req.params.Id, req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }

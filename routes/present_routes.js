@@ -6,7 +6,7 @@ var present = require('../Models/Present');
 
 router.get('/:Id?', function (req, res, next) {
     if(req.params.Id){
-present.getDetails(req.params.Id,function(err,rows){
+present.getDetails2(req.params.Id,function(err,rows){
     if (err) {
         res.json(err);
     }
@@ -16,7 +16,7 @@ present.getDetails(req.params.Id,function(err,rows){
 });
     }
     else{
-    present.getallDetails(function (err, rows) {
+    present.getallDetails2(function (err, rows) {
     
     
         if (err) {
@@ -33,7 +33,7 @@ present.getDetails(req.params.Id,function(err,rows){
      });
 router.post('/', function (req, res, next) {
 
-    present.addDetails(req.body, function (err, rows) {
+    present.addDetails2(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -46,7 +46,7 @@ router.post('/', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.delete('/:Id', function (req, res, next) {
 
-  present.deleteDetails(req.params.Id, function (err, rows) {
+  present.deleteDetails2(req.params.Id, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -59,7 +59,7 @@ router.delete('/:Id', function (req, res, next) {
 //http://localhost:3000/tasks/1
 router.put('/:Id', function (req, res, next) {
 
-    present.updateDetails(req.params.Id, req.body, function (err, rows) {
+    present.updateDetails2(req.params.Id, req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
